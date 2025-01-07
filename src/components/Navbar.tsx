@@ -5,18 +5,11 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   // Check if the user is logged in (based on the presence of a token)
-  const isLoggedIn = Boolean(localStorage.getItem("token"));
+  // const isLoggedIn = Boolean(localStorage.getItem("token"));
 
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Remove the token from localStorage
-    navigate("/login"); // Redirect to the login page
-  };
-
-  const getLinkClass = (path: string) => {
-    const baseClass = "px-4 py-2 rounded-md transition-colors duration-200";
-    return location.pathname === path
-      ? `${baseClass} text-white bg-indigo-600`
-      : `${baseClass} text-gray-300 hover:bg-gray-800`;
+    // localStorage.removeItem("token"); // Remove the token from localStorage
+    // navigate("/login"); // Redirect to the login page
   };
 
   return (
@@ -24,29 +17,41 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center h-16 justify-between">
           {/* Navigation Links */}
-          <div className="flex space-x-2">
-            <Link to="/" className={getLinkClass("/")}>
+          <div className="flex space-x-4">
+            <Link
+              to="/"
+              className={`px-4 py-2 rounded-md ${
+                location.pathname === "/"
+                  ? "bg-indigo-600 text-white"
+                  : "text-gray-300 hover:bg-gray-800"
+              }`}
+            >
               Home
             </Link>
-            <Link to="/todos" className={getLinkClass("/todo")}>
+            <Link
+              to="/todos"
+              className={`px-4 py-2 rounded-md ${
+                location.pathname === "/todo"
+                  ? "bg-indigo-600 text-white"
+                  : "text-gray-300 hover:bg-gray-800"
+              }`}
+            >
               Todo
             </Link>
           </div>
 
           {/* Login/Logout Button */}
           <div>
-            {isLoggedIn ? (
-              <button
-                onClick={handleLogout}
-                className="px-4 py-2 text-gray-300 hover:bg-red-600 hover:text-white rounded-md transition-colors duration-200"
-              >
-                Logout
-              </button>
-            ) : (
-              <Link to="/login" className={getLinkClass("/login")}>
-                Login
-              </Link>
-            )}
+            <Link
+              to="/login"
+              className={`px-4 py-2 rounded-md ${
+                location.pathname === "/login"
+                  ? "bg-indigo-600 text-white"
+                  : "text-gray-300 hover:bg-gray-800"
+              }`}
+            >
+              Login
+            </Link>
           </div>
         </div>
       </div>

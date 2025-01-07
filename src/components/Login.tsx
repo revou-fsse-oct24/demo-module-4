@@ -11,31 +11,6 @@ const Login: React.FC = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Prevent the default form submission
     console.log("Login form submitted");
-
-    // Check if user exists in localStorage
-    const storedUser = localStorage.getItem("user");
-
-    if (storedUser) {
-      // Parse the stored user and verify credentials
-      const { email: storedEmail, password: storedPassword } =
-        JSON.parse(storedUser);
-
-      if (email === storedEmail && password === storedPassword) {
-        console.log("Login successful");
-        localStorage.setItem("token", "your-auth-token");
-        navigate("/todos"); // Navigate to the todos page
-      } else {
-        console.error("Invalid credentials");
-        alert("Invalid credentials");
-      }
-    } else {
-      // No user exists, save the current email and password as the user
-      const newUser = { email, password };
-      localStorage.setItem("user", JSON.stringify(newUser));
-      localStorage.setItem("token", "your-auth-token");
-      console.log("User registered and logged in");
-      navigate("/todos"); // Navigate to the todos page
-    }
   };
 
   return (

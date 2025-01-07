@@ -5,7 +5,7 @@ import TodoList from "./components/TodoList";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import NotFound from "./components/NotFound";
-import ProtectedRoute from "./components/ProtectedRoute";
+// import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   return (
@@ -17,11 +17,8 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
 
-              {/* Protected Routes */}
-              <Route element={<ProtectedRoute />}>
-                <Route path="/todos" element={<TodoList />} />
-                <Route path="/profile" element={<Profile />} />
-              </Route>
+              <Route path="/todos" element={<TodoList />} />
+              <Route path="/profile" element={<Profile />} />
 
               <Route path="/login" element={<Login />} />
               <Route path="*" element={<NotFound />} />
