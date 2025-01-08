@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { UserProvider } from "./context/UserContext";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import TodoList from "./components/TodoList";
@@ -9,27 +10,29 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   return (
-    <Router>
-      <div className="min-h-screen">
-        <Navbar />
-        <div className="container">
-          <div className="container mx-auto px-4">
-            <Routes>
-              <Route path="/" element={<Home />} />
+    <UserProvider>
+      <Router>
+        <div className="min-h-screen">
+          <Navbar />
+          <div className="container">
+            <div className="container mx-auto px-4">
+              <Routes>
+                <Route path="/" element={<Home />} />
 
-              {/* Protected Routes */}
-              <Route element={<ProtectedRoute />}>
-                <Route path="/todos" element={<TodoList />} />
-                <Route path="/profile" element={<Profile />} />
-              </Route>
+                {/* Protected Routes */}
+                <Route element={<ProtectedRoute />}>
+                  <Route path="/todos" element={<TodoList />} />
+                  <Route path="/profile" element={<Profile />} />
+                </Route>
 
-              <Route path="/login" element={<Login />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </div>
           </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </UserProvider>
   );
 };
 
