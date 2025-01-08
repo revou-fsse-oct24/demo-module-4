@@ -1,16 +1,11 @@
 import { FC } from "react";
+import { useUser } from "../context/UserContext";
 
-interface UserData {
-  username: string;
-  role: string;
-  lastLogin: string;
-}
-
-interface UserGreetingProps {
-  userData: UserData;
-}
-
-export const UserGreeting: FC<UserGreetingProps> = ({ userData }) => {
+export const UserGreeting: FC = () => {
+  const { userData } = useUser();
+  if (!userData) {
+    return null;
+  }
   return (
     <div className="text-white">
       <p>Welcome back, {userData.username}!</p>

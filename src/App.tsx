@@ -7,29 +7,36 @@ import Profile from "./components/Profile";
 import NotFound from "./components/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 
+import { UserProvider } from "./context/UserContext";
+import { TodoProvider } from "./context/TodoContext";
+
 const App = () => {
   return (
-    <Router>
-      <div className="min-h-screen">
-        <Navbar />
-        <div className="container">
-          <div className="container mx-auto px-4">
-            <Routes>
-              <Route path="/" element={<Home />} />
+    <UserProvider>
+      <TodoProvider>
+        <Router>
+          <div className="min-h-screen">
+            <Navbar />
+            <div className="container">
+              <div className="container mx-auto px-4">
+                <Routes>
+                  <Route path="/" element={<Home />} />
 
-              {/* Protected Routes */}
-              <Route element={<ProtectedRoute />}>
-                <Route path="/todos" element={<TodoList />} />
-                <Route path="/profile" element={<Profile />} />
-              </Route>
+                  {/* Protected Routes */}
+                  <Route element={<ProtectedRoute />}>
+                    <Route path="/todos" element={<TodoList />} />
+                    <Route path="/profile" element={<Profile />} />
+                  </Route>
 
-              <Route path="/login" element={<Login />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+                  <Route path="/login" element={<Login />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </Router>
+        </Router>
+      </TodoProvider>
+    </UserProvider>
   );
 };
 
