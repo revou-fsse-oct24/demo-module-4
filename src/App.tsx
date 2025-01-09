@@ -17,6 +17,7 @@ import { UserProvider } from "./context/UserContext";
 import { TodoProvider } from "./context/TodoContext";
 import ExampleMemo from "./page/ExampleMemo";
 import ExampleCallback from "./page/ExampleCallback";
+import StateVsRefExample from "./page/StateVsRef";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
                 <Route path="/todos" element={<TodoList />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/exampleref" element={<ExampleRef />} />
+                <Route path="/statevsref" element={<StateVsRefExample />} />
                 <Route path="/examplememo" element={<ExampleMemo />} />
                 <Route path="/examplecallback" element={<ExampleCallback />} />
               </Route>

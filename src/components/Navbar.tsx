@@ -34,6 +34,9 @@ const Navbar = () => {
             <Link to="/exampleref" className={getLinkClass("/todo")}>
               Example Ref
             </Link>
+            <Link to="/statevsref" className={getLinkClass("/todo")}>
+              State vs Ref
+            </Link>
             <Link to="/examplememo" className={getLinkClass("/todo")}>
               Example Memo
             </Link>
