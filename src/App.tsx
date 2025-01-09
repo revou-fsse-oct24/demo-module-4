@@ -1,14 +1,22 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Page
+import Home from "./page/Home";
+import TodoList from "./page/TodoList";
+import Login from "./page/Login";
+import NotFound from "./page/NotFound";
+import Profile from "./page/Profile";
+import ExampleRef from "./page/ExampleRef";
+
+// Component
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import TodoList from "./components/TodoList";
-import Login from "./components/Login";
-import Profile from "./components/Profile";
-import NotFound from "./components/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 
+// Context
 import { UserProvider } from "./context/UserContext";
 import { TodoProvider } from "./context/TodoContext";
+import ExampleMemo from "./page/ExampleMemo";
+import ExampleCallback from "./page/ExampleCallback";
 
 const App = () => {
   return (
@@ -17,22 +25,22 @@ const App = () => {
         <Router>
           <div className="min-h-screen">
             <Navbar />
-            <div className="container">
-              <div className="container mx-auto px-4">
-                <Routes>
-                  <Route path="/" element={<Home />} />
 
-                  {/* Protected Routes */}
-                  <Route element={<ProtectedRoute />}>
-                    <Route path="/todos" element={<TodoList />} />
-                    <Route path="/profile" element={<Profile />} />
-                  </Route>
+            <Routes>
+              <Route path="/" element={<Home />} />
 
-                  <Route path="/login" element={<Login />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </div>
-            </div>
+              {/* Protected Routes */}
+              <Route element={<ProtectedRoute />}>
+                <Route path="/todos" element={<TodoList />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/exampleref" element={<ExampleRef />} />
+                <Route path="/examplememo" element={<ExampleMemo />} />
+                <Route path="/examplecallback" element={<ExampleCallback />} />
+              </Route>
+
+              <Route path="/login" element={<Login />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </div>
         </Router>
       </TodoProvider>

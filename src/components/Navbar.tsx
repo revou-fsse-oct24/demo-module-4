@@ -31,6 +31,15 @@ const Navbar = () => {
             <Link to="/todos" className={getLinkClass("/todo")}>
               Todo
             </Link>
+            <Link to="/exampleref" className={getLinkClass("/todo")}>
+              Example Ref
+            </Link>
+            <Link to="/examplememo" className={getLinkClass("/todo")}>
+              Example Memo
+            </Link>
+            <Link to="/examplecallback" className={getLinkClass("/todo")}>
+              Example Callback
+            </Link>
           </div>
 
           {/* Login/Logout Button */}

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { WelcomeSection } from "./WelcomeSection";
+import { WelcomeSection } from "../components/WelcomeSection";
 
 const Home: FC = () => {
   return (
