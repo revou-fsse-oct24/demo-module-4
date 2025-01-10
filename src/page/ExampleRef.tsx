@@ -5,6 +5,7 @@ const ExampleRef = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const prevValueRef = useRef<string>("");
   const [value, setValue] = useState<string>("");
+  console.log("value", value);
 
   const handleFocus = () => {
     // Now TypeScript knows inputRef.current might be null

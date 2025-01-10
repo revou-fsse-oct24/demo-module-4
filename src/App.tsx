@@ -2,11 +2,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Page
 import Home from "./page/Home";
-import TodoList from "./page/TodoList";
 import Login from "./page/Login";
-import NotFound from "./page/NotFound";
 import Profile from "./page/Profile";
+import TodoList from "./page/TodoList";
+import NotFound from "./page/NotFound";
 import ExampleRef from "./page/ExampleRef";
+import CustomHooks from "./page/CustomHooks";
+import ExampleMemo from "./page/ExampleMemo";
+import ExampleCallback from "./page/ExampleCallback";
+import StateVsRefExample from "./page/StateVsRef";
 
 // Component
 import Navbar from "./components/Navbar";
@@ -15,9 +19,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 // Context
 import { UserProvider } from "./context/UserContext";
 import { TodoProvider } from "./context/TodoContext";
-import ExampleMemo from "./page/ExampleMemo";
-import ExampleCallback from "./page/ExampleCallback";
-import StateVsRefExample from "./page/StateVsRef";
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
                 <Route path="/statevsref" element={<StateVsRefExample />} />
                 <Route path="/examplememo" element={<ExampleMemo />} />
                 <Route path="/examplecallback" element={<ExampleCallback />} />
+                <Route path="/examplecustomhooks" element={<CustomHooks />} />
               </Route>
 
               <Route path="/login" element={<Login />} />
